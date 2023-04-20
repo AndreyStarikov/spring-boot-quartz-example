@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: quartz-single-node-scheduler
+  quartz:
+    job-store-type: memory
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: ${spring.application.name}-scheduler
+            skipUpdateCheck: true
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 1

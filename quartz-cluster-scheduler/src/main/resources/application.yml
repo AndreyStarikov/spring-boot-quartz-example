@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: quartz-cluster-scheduler
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/quartz_test
+#    jdbc-url: jdbc:postgresql://localhost:5432/quartz_test
+    username: quartz_user
+    password: quartz_password
+  liquibase:
+    changeLog: "classpath:db/master-changelog.yml"
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          jobStore:
+            class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+            isClustered: true
+            misfireThreshold: 60000
+            clusterCheckinInterval: 2000
+          scheduler:
+            instanceId: AUTO
+            instanceName: ${spring.application.name}-scheduler
+            skipUpdateCheck: true
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 4
+
+scheduler:
+  staticJobExample: 5000
