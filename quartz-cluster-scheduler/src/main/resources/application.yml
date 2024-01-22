@@ -4,7 +4,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/quartz_test
-#    jdbc-url: jdbc:postgresql://localhost:5432/quartz_test
+    #    jdbc-url: jdbc:postgresql://localhost:5432/quartz_test
     username: quartz_user
     password: quartz_password
   liquibase:
@@ -31,4 +31,4 @@ spring:
             threadCount: 4
 
 scheduler:
-  staticJobExample: 5000
+  staticJobIntervalInMilliseconds: 5000

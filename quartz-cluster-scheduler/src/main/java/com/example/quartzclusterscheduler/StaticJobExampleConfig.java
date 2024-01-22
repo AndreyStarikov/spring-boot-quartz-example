@@ -34,7 +34,7 @@ public class StaticJobExampleConfig {
   @Bean
   public Trigger trigger(
       @Qualifier("jobDetail") JobDetail jobDetail,
-      @Value("${scheduler.staticJobExample}") long intervalInMillis
+      @Value("${scheduler.staticJobIntervalInMilliseconds}") long intervalInMillis
   ) {
     return TriggerBuilder.newTrigger().forJob(jobDetail)
         .withIdentity(STATIC_JOB_IDENTITY_KEY)

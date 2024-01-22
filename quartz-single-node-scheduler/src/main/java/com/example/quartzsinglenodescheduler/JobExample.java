@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 public class JobExample implements Job {
 
   public static final String JOB_NAME = "JOB_NAME";
-  public static final String JOB_IDENTITY_KEY = "EXAMPLE_JOB_";
   private static final Logger log = LoggerFactory.getLogger(JobExample.class);
 
   @Override

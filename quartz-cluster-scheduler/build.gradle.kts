@@ -1,6 +1,6 @@
 plugins {
-    id("org.springframework.boot") version "3.0.5"
-    id("io.spring.dependency-management") version "1.1.0"
+    id("org.springframework.boot") version "3.2.2"
+    id("io.spring.dependency-management") version "1.1.4"
     id("java")
 }
 
@@ -15,7 +15,6 @@ repositories {
     mavenCentral()
 }
 
-
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
@@ -26,6 +25,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-quartz")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("org.postgresql:postgresql:42.5.3")
-    implementation("org.liquibase:liquibase-core:4.20.0")
+    implementation("org.postgresql:postgresql:42.7.1")
+    implementation("org.liquibase:liquibase-core:4.25.1")
 }

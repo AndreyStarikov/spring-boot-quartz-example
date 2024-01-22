@@ -27,12 +27,10 @@ public class Controller {
   public void scheduleTask(@PathVariable String jobName) throws SchedulerException {
     log.info("Job {} is scheduling", jobName);
     var jobDetail = JobBuilder.newJob(JobExample.class)
-        .withIdentity(JobExample.JOB_IDENTITY_KEY + jobName)
         .usingJobData(JobExample.JOB_NAME, jobName)
         .build();
     var trigger = TriggerBuilder.newTrigger()
         .forJob(jobDetail.getKey().getName())
-        .withIdentity(JobExample.JOB_IDENTITY_KEY + jobName)
         .startNow()
         .withSchedule(SimpleScheduleBuilder.simpleSchedule()).build();
     schedulerFactoryBean.getScheduler().scheduleJob(jobDetail, trigger);
