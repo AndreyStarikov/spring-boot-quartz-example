@@ -1,5 +1,6 @@
 package com.example.quartzclusterscheduler;
 
+import static com.example.quartzclusterscheduler.StaticJobExampleConfig.StaticJobExampleJob.STATIC_JOB_IDENTITY_KEY;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
 import java.time.LocalTime;
@@ -20,8 +21,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class StaticJobExampleConfig {
-
-  private static final String STATIC_JOB_IDENTITY_KEY = "STATIC_JOB";
 
   @Bean
   public JobDetail jobDetail() {
@@ -51,6 +50,7 @@ public class StaticJobExampleConfig {
 
     private static final Logger log = LoggerFactory.getLogger(StaticJobExampleJob.class);
     private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+    static final String STATIC_JOB_IDENTITY_KEY = "STATIC_JOB";
 
     @Override
     public void execute(final JobExecutionContext context) {
